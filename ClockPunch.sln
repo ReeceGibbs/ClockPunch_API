@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockPunch", "ClockPunch.csproj", "{5D2CBCAB-1EDE-49CF-9A3D-7E86D73AA48A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockPunchDataAccess", "..\ClockPunchDataAccess\ClockPunchDataAccess.csproj", "{78C922AD-43D3-4A28-A819-7484B5438EDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D2CBCAB-1EDE-49CF-9A3D-7E86D73AA48A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D2CBCAB-1EDE-49CF-9A3D-7E86D73AA48A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D2CBCAB-1EDE-49CF-9A3D-7E86D73AA48A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D2CBCAB-1EDE-49CF-9A3D-7E86D73AA48A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78C922AD-43D3-4A28-A819-7484B5438EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78C922AD-43D3-4A28-A819-7484B5438EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78C922AD-43D3-4A28-A819-7484B5438EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78C922AD-43D3-4A28-A819-7484B5438EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35480374-B76C-4B76-9920-7697D035AD0A}
+	EndGlobalSection
+EndGlobal
