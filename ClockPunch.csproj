@@ -165,13 +165,17 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\TimeLogsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Dtos\ClientDto.cs" />
+    <Compile Include="Models\Dtos\EmployeeDto.cs" />
+    <Compile Include="Models\Dtos\ProjectDto.cs" />
     <Compile Include="Models\Dtos\TimeLogDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

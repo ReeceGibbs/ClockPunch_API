@@ -35,8 +35,8 @@ namespace ClockPunch.Controllers
                     timeLogDtos.Add(new TimeLogDto()
                     {
                         Id = timeLog.Id,
-                        EmployeeName = timeLog.EmployeeName,
-                        ClientId = timeLog.ClientId,
+                        EmployeeId = timeLog.EmployeeId,
+                        ProjectId = timeLog.ProjectId,
                         LogDate = timeLog.LogDate,
                         Hours = timeLog.Hours
                     });
@@ -63,8 +63,8 @@ namespace ClockPunch.Controllers
                 TimeLogDto timeLogDto = new TimeLogDto()
                 {
                     Id = timeLog.Id,
-                    EmployeeName = timeLog.EmployeeName,
-                    ClientId = timeLog.ClientId,
+                    EmployeeId = timeLog.EmployeeId,
+                    ProjectId = timeLog.ProjectId,
                     LogDate = timeLog.LogDate,
                     Hours = timeLog.Hours
                 };
@@ -94,8 +94,8 @@ namespace ClockPunch.Controllers
                 //we add the new timeLog to the entity reference
                 entities.TimeLogs.Add(new TimeLog()
                 {
-                    EmployeeName = timeLog.EmployeeName,
-                    ClientId = timeLog.ClientId,
+                    EmployeeId = timeLog.EmployeeId,
+                    ProjectId = timeLog.ProjectId,
                     LogDate = timeLog.LogDate,
                     Hours = timeLog.Hours
                 });
@@ -136,8 +136,8 @@ namespace ClockPunch.Controllers
                 }
 
                 //we update the values of the timeLog item in the data context
-                dbTimeLog.EmployeeName = timeLog.EmployeeName;
-                dbTimeLog.ClientId = timeLog.ClientId;
+                dbTimeLog.EmployeeId = timeLog.EmployeeId;
+                dbTimeLog.ProjectId = timeLog.ProjectId;
                 dbTimeLog.LogDate = timeLog.LogDate;
                 dbTimeLog.Hours = timeLog.Hours;
 
