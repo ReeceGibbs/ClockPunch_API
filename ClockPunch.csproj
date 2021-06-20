@@ -177,6 +177,8 @@
     <Compile Include="Models\Dtos\EmployeeDto.cs" />
     <Compile Include="Models\Dtos\ProjectDto.cs" />
     <Compile Include="Models\Dtos\TimeLogDto.cs" />
+    <Compile Include="Models\Dtos\TimeLogsDayByDayRqDto.cs" />
+    <Compile Include="Models\Dtos\TimeLogsDayByDayRsDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

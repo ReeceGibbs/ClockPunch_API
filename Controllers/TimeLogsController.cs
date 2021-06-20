@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -9,6 +11,7 @@ using ClockPunchDataAccess;
 
 namespace ClockPunch.Controllers
 {
+    [RoutePrefix("api/timelogs")]
     public class TimeLogsController : ApiController
     {
 
@@ -167,6 +170,34 @@ namespace ClockPunch.Controllers
 
             //we return a successful response
             return Ok("TimeLog successfully deleted.");
+        }
+
+        //a method that can be called to retrieve a day by day timelogs report
+        [HttpGet]
+        [Route("reports/daybyday")]
+        public TimeLogsDayByDayRsDto GetTimeLogsDayByDay([FromBody] TimeLogsDayByDayRqDto timeLogsDayByDayRqDto)
+        {
+
+            //we declare our response dto
+            TimeLogsDayByDayRsDto timeLogsDayByDayRsDto = new TimeLogsDayByDayRsDto();
+
+            //we begin a using block to reference our dbContext
+            using (ClockPunchEntities entities = new ClockPunchEntities())
+            {
+
+
+                //we define the sql parameters for our call to our stored procedure
+                SqlParameter[] sqlParameters = new SqlParameter[]
+                {
+                    new SqlParameter("@startDate", timeLogsDayByDayRqDto.StartDate),
+                    new SqlParameter("@endDate", timeLogsDayByDayRqDto.EndDate)
+                };
+
+                //we call our stored proc through our entity object
+                ObjectResult<spTimeLogsDaybyDay_Result> spTimeLogsDaybyDay_Result = entities.spTimeLogsDaybyDay(sqlParameters[0].ToString(), sqlParameters[1].ToString());
+            }
+
+            return timeLogsDayByDayRsDto;
         }
     }
 }
