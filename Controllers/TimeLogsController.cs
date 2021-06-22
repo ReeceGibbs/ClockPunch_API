@@ -175,28 +175,48 @@ namespace ClockPunch.Controllers
         //a method that can be called to retrieve a day by day timelogs report
         [HttpGet]
         [Route("reports/daybyday")]
-        public TimeLogsDayByDayRsDto GetTimeLogsDayByDay([FromBody] TimeLogsDayByDayRqDto timeLogsDayByDayRqDto)
+        public List<TimeLogsDayByDayRsDto> GetTimeLogsDayByDay([FromBody] TimeLogsDayByDayRqDto timeLogsDayByDayRqDto)
         {
 
             //we declare our response dto
-            TimeLogsDayByDayRsDto timeLogsDayByDayRsDto = new TimeLogsDayByDayRsDto();
+            List<TimeLogsDayByDayRsDto> timeLogsDayByDayRsDto = new List<TimeLogsDayByDayRsDto>();
 
             //we begin a using block to reference our dbContext
             using (ClockPunchEntities entities = new ClockPunchEntities())
             {
 
 
-                //we define the sql parameters for our call to our stored procedure
-                SqlParameter[] sqlParameters = new SqlParameter[]
-                {
-                    new SqlParameter("@startDate", timeLogsDayByDayRqDto.StartDate),
-                    new SqlParameter("@endDate", timeLogsDayByDayRqDto.EndDate)
+                //we define the parameters for our call to our stored procedure
+                List<DateTime> parameters = new List<DateTime>() 
+                { 
+                    timeLogsDayByDayRqDto.StartDate,
+                    timeLogsDayByDayRqDto.EndDate
                 };
 
+
                 //we call our stored proc through our entity object
-                ObjectResult<spTimeLogsDaybyDay_Result> spTimeLogsDaybyDay_Result = entities.spTimeLogsDaybyDay(sqlParameters[0].ToString(), sqlParameters[1].ToString());
+                IEnumerator<spTimeLogsDaybyDay_Result> spTimeLogsDaybyDay_Result = entities.spTimeLogsDaybyDay(parameters[0], parameters[1]).GetEnumerator();
+
+                //we iterate through our results
+                while (spTimeLogsDaybyDay_Result.MoveNext())
+                {
+
+                    //we grab the current record from our result set
+                    spTimeLogsDaybyDay_Result record = spTimeLogsDaybyDay_Result.Current;
+
+                    //we add the record details to our list of response dtos
+                    timeLogsDayByDayRsDto.Add(new TimeLogsDayByDayRsDto() 
+                    { 
+                        ClientName = record.ClientName,
+                        ProjectName = record.ProjectName,
+                        EmployeeName = record.EmployeeName,
+                        LogDate = record.LogDate,
+                        Hours = record.Hours
+                    });
+                }
             }
 
+            //we return our response
             return timeLogsDayByDayRsDto;
         }
     }
