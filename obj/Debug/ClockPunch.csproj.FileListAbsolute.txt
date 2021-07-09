@@ -90,3 +90,6 @@ D:\Source Repo\Projects\ClockPunch\obj\Debug\ClockPunch.csproj.CoreCompileInputs
 D:\Source Repo\Projects\ClockPunch\obj\Debug\ClockPunch.csproj.CopyComplete
 D:\Source Repo\Projects\ClockPunch\obj\Debug\ClockPunch.dll
 D:\Source Repo\Projects\ClockPunch\obj\Debug\ClockPunch.pdb
+D:\Source Repo\Projects\ClockPunch\bin\System.Web.Cors.dll
+D:\Source Repo\Projects\ClockPunch\bin\System.Web.Http.Cors.dll
+D:\Source Repo\Projects\ClockPunch\bin\System.Web.Http.Cors.xml
